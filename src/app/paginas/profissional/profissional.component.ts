@@ -1,4 +1,5 @@
 import { Component, OnInit, Injectable, TemplateRef } from '@angular/core';
+import { BarberService } from '../../services/barber.service';
 
 @Component({
   selector: 'app-profissional',
@@ -6,35 +7,27 @@ import { Component, OnInit, Injectable, TemplateRef } from '@angular/core';
   styleUrls: ['./profissional.component.css']
 })
 export class ProfissionalComponent implements OnInit {
-
   cols: any = [];
-  constructor() { }
-
+  profissionais: any;
+  constructor(private service: BarberService) { }
+  
   ngOnInit() {
     this.cols = [
-      { field: 'mileName', header: 'Name' },
-      { field: 'mileDescription', header: 'Description' },
-      { field: 'mileDuoDate', header: 'Due Date' }
+      { field: 'nome', header: 'Nome' },
+      { field: 'cpf', header: 'CPF' },
+      { field: 'email', header: 'EMAIL' },
+      { field: 'especializacao', header: 'Especialização' }
     ];
+    this.getProfissional();
   }
 
-  getProfissionals() {
-    // this.ttService.getProfissionalsByCompId(sessionStorage.getItem('compId')).subscribe(
-    //   // the first argument is a function which runs on success
-    //   data => { this.milestones = data;},
-    //   // the second argument is a function which runs on error
-    //   err => {
-    //     this.ttService.checkErr(err,'error loading milestones', this.modalRef);
-    //     this.alertsDismiss.push({
-    //       type: 'danger',
-    //       msg: err.error.errorMessage,
-    //       timeout: 5000
-    //     });
-        
-    //   },
-    //   // the third argument is a function which runs on completion
-    //   () => console.log('done loading milestones')
-    // );
+  getProfissional() {
+    console.log('profissional');
+    this.service.getProfissional().subscribe(
+      data => {
+         this.profissionais = data;
+      }
+    );
   }
 
   showDialog(row) {

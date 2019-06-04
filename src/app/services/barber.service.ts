@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { AppComponent } from "../app.component";
 
 @Injectable()
 export class BarberService {
 
   httpHeaders = new HttpHeaders
-  constructor(private http: HttpClient, public router: Router) {
-  }
-
-  checkErr(err, message, modal) {
-    if (err.url == null) {
-      if (modal != undefined || modal != null) {
-        modal.hide();
-      }
-      sessionStorage.clear();
-      this.router.navigateByUrl('/login');
-    }
+  constructor(private http: HttpClient) {
   }
 
   getOptions() {
@@ -24,6 +14,11 @@ export class BarberService {
       'Content-Type' : 'application/json',
       'Authorization' : 'Basic ' + sessionStorage.getItem('base64Credential') 
     };
+  }
+
+  getProfissional() {
+    console.log("chegou")
+    return this.http.get(AppComponent.API_URL + '/profissional', );
   }
  
 }

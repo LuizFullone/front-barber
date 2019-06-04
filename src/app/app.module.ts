@@ -19,6 +19,7 @@ import { AppAsideModule, AppBreadcrumbModule, AppFooterModule, AppHeaderModule, 
 import { TreeModule } from 'angular-tree-component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {TableModule} from 'primeng/table';
+import { BarberService } from './services/barber.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +31,12 @@ import {TableModule} from 'primeng/table';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
     HttpModule,
     routing,
     GrowlModule,
     BrowserAnimationsModule,
+    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
@@ -49,7 +50,7 @@ import {TableModule} from 'primeng/table';
     TreeModule,
     TableModule
   ],
-  providers: [],
+  providers: [BarberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
