@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --cor-bg-fundo: #2B3243;
+    --cor-bg-texto: #F0F7F4;
+    --cor-bg-sundaria1: #BEE6CE;
+    --cor-bg-sundaria2: #70ABAF;
+    --cor-bg-sundaria3: #705D56;
+  }
+
+body{
+    background-color: var(--cor-bg-fundo)!important;
+    color: var(--cor-bg-texto)!important;
+}
