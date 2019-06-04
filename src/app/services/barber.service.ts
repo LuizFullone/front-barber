@@ -18,7 +18,6 @@ export class BarberService {
 
   getProfissional() {
     console.log("chegou")
-    return this.http.get(AppComponent.API_URL + '/profissional', );
+    return this.http.get(AppComponent.API_URL + '/profissional', { headers: this.getOptions() } );
   }
- 
 }
