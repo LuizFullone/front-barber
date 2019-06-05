@@ -1,5 +1,7 @@
 import { Component, OnInit, Injectable, TemplateRef } from '@angular/core';
 import { BarberService } from '../../services/barber.service';
+import {NgbDateAdapter, NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ProfissionalComponentDialog} from '../../dialogs/profissional-dialog/profissional-dialog.component';
 
 @Component({
   selector: 'app-profissional',
@@ -9,13 +11,14 @@ import { BarberService } from '../../services/barber.service';
 export class ProfissionalComponent implements OnInit {
   cols: any = [];
   profissionais: any;
-  constructor(private service: BarberService) { }
+  constructor(private service: BarberService, private ngbModal: NgbModal) { }
   
   ngOnInit() {
     this.cols = [
+      { field: 'idProfissional', header: 'Id'},
       { field: 'nome', header: 'Nome' },
-      { field: 'cpf', header: 'CPF' },
-      { field: 'email', header: 'EMAIL' },
+      { field: 'cpf', header: 'Cpf' },
+      { field: 'email', header: 'E-mail' },
       { field: 'especializacao', header: 'Especialização' }
     ];
     this.getProfissional();
@@ -30,14 +33,17 @@ export class ProfissionalComponent implements OnInit {
     );
   }
 
-  showDialog(row) {
-  //   console.log('rowData: ', row);
-  //   let modalDialog = this.ngbModal.open(ProfissionalDialogComponent);
-  //   if(row != null){
-  //     modalDialog.componentInstance.mileId = row.mileId;
-  //     modalDialog.componentInstance.projectId = row.projectId;
-  //   }
-  //   modalDialog.componentInstance.tree = false;
-  //   modalDialog.result.then(resolve => {if (resolve === 'node update') this.getProfissionals();});
-   }
+  show(row) {
+    console.log("dialog");
+    let modalDialog = this.ngbModal.open(ProfissionalComponentDialog, { size: 'lg' });
+    if(row){
+      modalDialog.componentInstance.profissionalId = row.idProfissional;
+    }else{
+      modalDialog.componentInstance.profissionalId = null  
+    }
+    modalDialog.result.then(response => {
+      this.getProfissional();
+    })
+  }
+
 }

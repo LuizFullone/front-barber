@@ -20,6 +20,7 @@ import { TreeModule } from 'angular-tree-component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {TableModule} from 'primeng/table';
 import { BarberService } from './services/barber.service';
+import { DialogsModule } from './dialogs/dialogs.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { BarberService } from './services/barber.service';
     AppSidebarModule,
     TabsModule.forRoot(),
     TreeModule,
-    TableModule
+    TableModule,
+    DialogsModule
   ],
   providers: [BarberService],
   bootstrap: [AppComponent]

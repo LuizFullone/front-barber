@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <h4 class="modal-title" style="color: black">{{titleHeader}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form class="profissional">
+    <div class="modal-body">
+        <div class="form-group row">
+            <label for="time" style="color: black" class="col-md-3 col-form-label">Nome</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="nome"  [(ngModel)]="nome" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">CPF</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="cpf"  [(ngModel)]="cpf" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">Email</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="email"  [(ngModel)]="email" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">Usuário</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="usuario"  [(ngModel)]="usuario" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">Senha</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="senha"  [(ngModel)]="senha" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">Confirmar Senha</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="confirmar"  [(ngModel)]="confirmar" required>
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="time" style="color: black" class="col-md-3 col-form-label">Especialização</label>
+                <div class="col-md-8">
+                    <input type="text" focus="true"  class="form-control" name="especializacao"  [(ngModel)]="especializacao" required>
+                </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+            <button type="button" class="btn btn-outline-dark"  (click)="close()">Cancelar</button>
+    </div>
+</form>

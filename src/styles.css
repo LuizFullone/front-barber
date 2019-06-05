@@ -1,4 +1,5 @@
-
+@import '../node_modules/primeng/resources/themes/omega/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
 :root {
     --cor-bg-fundo: #2B3243;
     --cor-bg-texto: #F0F7F4;
