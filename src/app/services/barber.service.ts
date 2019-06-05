@@ -25,6 +25,10 @@ export class BarberService {
   }
 
   getProfissionalById(id){
-    return this.http.get(AppComponent.API_URL + '/profissional'+id, { headers: this.getOptions() } );
+    return this.http.get(AppComponent.API_URL + '/profissional/'+id, { headers: this.getOptions() } );
+  }
+
+  updateProfissional(id,body){
+    return this.http.put(AppComponent.API_URL + '/profissional/'+id,body, { headers: this.getOptions() } );
   }
 }

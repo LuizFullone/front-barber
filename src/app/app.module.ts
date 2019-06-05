@@ -50,7 +50,7 @@ import { DialogsModule } from './dialogs/dialogs.module';
     TabsModule.forRoot(),
     TreeModule,
     TableModule,
-    DialogsModule
+    DialogsModule    
   ],
   providers: [BarberService],
   bootstrap: [AppComponent]

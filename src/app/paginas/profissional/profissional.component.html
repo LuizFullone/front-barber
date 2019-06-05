@@ -11,7 +11,7 @@
               <button class="btn btn-info" style="margin-right: 10px"(click)="convertPDF()">Filtro</button>
             </div>
     </div>
-        <p-table #dt [columns]="cols" [value]="profissionais" sortMode="multiple" [paginator]="true" [rows]="20">
+        <p-table #dt [columns]="cols" [value]="profissionais" sortMode="multiple" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th class="truncate" *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -21,7 +21,7 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
-              <tr [pSelectableRow]="rowData" (click)="showDialog(rowData)">
+              <tr [pSelectableRow]="rowData" (click)="show(rowData)">
                   <td class="truncate" *ngFor="let col of columns">
                       {{rowData[col.field]}}
                   </td>

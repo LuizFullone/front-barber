@@ -34,7 +34,7 @@ export class ProfissionalComponent implements OnInit {
   }
 
   show(row) {
-    console.log("dialog");
+    console.log(row);
     let modalDialog = this.ngbModal.open(ProfissionalComponentDialog, { size: 'lg' });
     if(row){
       modalDialog.componentInstance.profissionalId = row.idProfissional;

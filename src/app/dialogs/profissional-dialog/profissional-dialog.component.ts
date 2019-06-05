@@ -22,7 +22,10 @@ export class ProfissionalComponentDialog implements OnInit {
     confirmar: string;
     especializacao: string;
     ngOnInit() {
-      this.titleHeader = 'Novo Projeto'
+      this.titleHeader = 'Novo Projeto';
+      if(this.profissionalId != null ){        
+        this.getProfissionalId(this.profissionalId);
+      }
     }
 
     save(){
@@ -34,7 +37,6 @@ export class ProfissionalComponentDialog implements OnInit {
     }
 
     createProject() {
-      this.close();
       this.service.createProfissional({
         "nome": this.nome,
         "cpf": this.cpf,
@@ -43,11 +45,25 @@ export class ProfissionalComponentDialog implements OnInit {
         "senha": this.senha,
         "especializacao": this.especializacao
       }).subscribe(
+        ()=>{
+          this.close();
+        }
       );
     }
 
     updateProfissional(){
-
+      this.service.updateProfissional(this.profissionalId,{
+        "nome": this.nome,
+        "cpf": this.cpf,
+        "email": this.email,
+        "usuario": this.usuario,
+        "senha": this.senha,
+        "especializacao": this.especializacao
+      }).subscribe(
+        ()=>{
+          this.close();
+        }
+      );
     }
 
     close() {
