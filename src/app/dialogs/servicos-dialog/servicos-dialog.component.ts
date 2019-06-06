@@ -15,7 +15,7 @@ export class ServicosComponentDialog implements OnInit {
     servicos: any;
     titleHeader: string;
     nome: string;
-    valor: string;
+    valor: DoubleRange;
     
     ngOnInit() {
       this.titleHeader = 'Novo Serviço';
