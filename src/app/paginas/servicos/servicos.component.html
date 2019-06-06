@@ -1,36 +1,31 @@
-<h2>Serviço <small>barber</small></h2>
-<hr/>
- <div>
-    <button type="button" class="btn btn-primary" >Novo</button>
-    <button type="button" class="btn btn-light">Filtro</button>
+<div>
+  <div class="row">
+    <div class="col-4">
+      <legend>Serviço</legend>
+    </div>
   </div>
-  <div class="grade">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Preco</th>
-          <th scope="col">Tempo de Duração</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Mark</th>
-          <td>15R$</td>
-          <td>20 mim</td>
-        </tr>
-        <tr>
-          <th scope="row">Jacob</th>
-          <td>15R$</td>
-          <td>20 mim</td>
-        </tr>
-        <tr>
-          <th scope="row">Larry</th>
-          <td>15R$</td>
-          <td>20 mim</td>
-        </tr>
-      </tbody>
-      
-    </table>
+  <br>
+  <div class="row mb-2">
+        <div class="col">
+            <button type="button" style="margin-right: 10px" class="btn btn-primary" (click)="show(null)">Novo</button>
+          </div>
   </div>
+      <p-table [columns]="cols" [value]="servicos" sortMode="multiple" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th class="truncate" *ngFor="let col of columns" [pSortableColumn]="col.field">
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" (click)="show(rowData)">
+                <td class="truncate" *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>                       
+      </p-table>
+</div>
   

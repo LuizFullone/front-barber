@@ -31,4 +31,20 @@ export class BarberService {
   updateProfissional(id,body){
     return this.http.put(AppComponent.API_URL + '/profissional/'+id,body, { headers: this.getOptions() } );
   }
+
+  getServicos() {
+    return this.http.get(AppComponent.API_URL + '/servico', { headers: this.getOptions() } );
+  }
+
+  createServicos(body) {
+    return this.http.post(AppComponent.API_URL + '/servico', body, { headers: this.getOptions() } );
+  }
+
+  getServicosById(id){
+    return this.http.get(AppComponent.API_URL + '/servico/'+id, { headers: this.getOptions() } );
+  }
+
+  updateServicos(id,body){
+    return this.http.put(AppComponent.API_URL + '/servico/'+id,body, { headers: this.getOptions() } );
+  }
 }

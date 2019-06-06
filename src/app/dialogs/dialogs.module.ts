@@ -1,4 +1,5 @@
 import { ProfissionalComponentDialog } from './profissional-dialog/profissional-dialog.component';
+import { ServicosComponentDialog } from './servicos-dialog/servicos-dialog.component';
 // Angular
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ import {GrowlModule} from 'primeng/growl';
   
   declarations: [
     ProfissionalComponentDialog,
+    ServicosComponentDialog,
   ],
   
   exports: [],
@@ -36,7 +38,8 @@ import {GrowlModule} from 'primeng/growl';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   entryComponents: [ 
-    ProfissionalComponentDialog   
+    ProfissionalComponentDialog, 
+    ServicosComponentDialog  
   ]
 })
 export class DialogsModule { }
