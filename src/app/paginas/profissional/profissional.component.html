@@ -13,7 +13,7 @@
         <p-table [columns]="cols" [value]="profissionais" sortMode="multiple" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th class="truncate" *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
                         {{col.header}}
                         <p-sortIcon [field]="col.field"></p-sortIcon>
                     </th>
@@ -21,7 +21,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
               <tr [pSelectableRow]="rowData" (click)="show(rowData)">
-                  <td class="truncate" *ngFor="let col of columns">
+                  <td *ngFor="let col of columns" [ngClass]="'old-car'">
                       {{rowData[col.field]}}
                   </td>
               </tr>
