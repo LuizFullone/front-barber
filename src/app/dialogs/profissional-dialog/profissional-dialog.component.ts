@@ -32,23 +32,27 @@ export class ProfissionalComponentDialog implements OnInit {
       if(this.profissionalId != null){
         this.updateProfissional();
       }else{
-        this.createProject();
+        this.createProfissional();
       }
     }
 
-    createProject() {
-      this.service.createProfissional({
-        "nome": this.nome,
-        "cpf": this.cpf,
-        "email": this.email,
-        "usuario": this.usuario,
-        "senha": this.senha,
-        "especializacao": this.especializacao
-      }).subscribe(
-        ()=>{
-          this.close();
-        }
-      );
+    createProfissional() {
+      if(this.senha==this.confirmar){
+        this.service.createProfissional({
+          "nome": this.nome,
+          "cpf": this.cpf,
+          "email": this.email,
+          "usuario": this.usuario,
+          "senha": this.senha,
+          "especializacao": this.especializacao
+        }).subscribe(
+          ()=>{
+            this.close();
+          }
+        );
+      }else{
+        alert("Confirme sua senha novamente, encontramos um erro !");
+      }
     }
 
     updateProfissional(){
@@ -80,6 +84,7 @@ export class ProfissionalComponentDialog implements OnInit {
               this.email = this.profissional.email;
               this.usuario = this.profissional.usuario;
               this.senha = this.profissional.senha;
+              this.confirmar = this.senha;
               this.cpf = this.profissional.cpf;
               this.especializacao = this.profissional.especializacao;
           }
