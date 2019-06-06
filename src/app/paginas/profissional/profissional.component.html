@@ -8,10 +8,9 @@
     <div class="row mb-2">
           <div class="col">
               <button type="button" style="margin-right: 10px" class="btn btn-primary" (click)="show(null)">Novo</button>
-              <button class="btn btn-info" style="margin-right: 10px"(click)="convertPDF()">Filtro</button>
             </div>
     </div>
-        <p-table #dt [columns]="cols" [value]="profissionais" sortMode="multiple" [paginator]="true" [rows]="10">
+        <p-table [columns]="cols" [value]="profissionais" sortMode="multiple" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th class="truncate" *ngFor="let col of columns" [pSortableColumn]="col.field">

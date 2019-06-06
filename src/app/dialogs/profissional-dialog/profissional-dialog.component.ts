@@ -22,7 +22,7 @@ export class ProfissionalComponentDialog implements OnInit {
     confirmar: string;
     especializacao: string;
     ngOnInit() {
-      this.titleHeader = 'Novo Projeto';
+      this.titleHeader = 'Novo Profissional';
       if(this.profissionalId != null ){        
         this.getProfissionalId(this.profissionalId);
       }
