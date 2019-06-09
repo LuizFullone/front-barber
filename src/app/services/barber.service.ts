@@ -47,4 +47,20 @@ export class BarberService {
   updateServicos(id,body){
     return this.http.put(AppComponent.API_URL + '/servico/'+id,body, { headers: this.getOptions() } );
   }
+
+  getCliente() {
+    return this.http.get(AppComponent.API_URL + '/cliente', { headers: this.getOptions() } );
+  }
+
+  createCliente(body) {
+    return this.http.post(AppComponent.API_URL + '/cliente', body, { headers: this.getOptions() } );
+  }
+
+  getClienteById(id){
+    return this.http.get(AppComponent.API_URL + '/cliente/'+id, { headers: this.getOptions() } );
+  }
+
+  updateCliente(id,body){
+    return this.http.put(AppComponent.API_URL + '/cliente/'+id,body, { headers: this.getOptions() } );
+  }
 }

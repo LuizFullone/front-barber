@@ -1,19 +1,30 @@
-<form>
-  <div class="form-group">
-    <label for="InputName">Nome</label>
-    <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="Digite o nome do cliente">
+<div>
+  <div class="row">
+    <div class="col-4">
+      <legend>Cliente</legend>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="exampleInputEmail">E-mail</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite Seu email">
+  <br>
+  <div class="row mb-2">
+        <div class="col">
+            <button type="button" style="margin-right: 10px" class="btn btn-primary" (click)="show(null)">Novo</button>
+          </div>
   </div>
-  <div class="form-group">
-    <label for="InputPassword">Senha</label>
-    <input type="password" class="form-control" id="InputPassword" placeholder="Senha ">
-  </div>
-  <div class="form-group">
-    <label for="InputPassword">Confirmar Senha</label>
-    <input type="password" class="form-control" id="InputPasswordConfirm" placeholder="Confirmar Senha">
-  </div>
-  <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
+      <p-table [columns]="cols" [value]="clientes" sortMode="multiple" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" (click)="show(rowData)">
+                <td *ngFor="let col of columns" [ngClass]="'old-car'">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>                       
+      </p-table>
+</div>
