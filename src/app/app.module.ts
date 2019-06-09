@@ -28,7 +28,7 @@ import {TableModule} from 'primeng/table';
     ClienteComponent,
     ReservaComponent,
     ProfissionalComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     FormsModule,
@@ -38,7 +38,6 @@ import {TableModule} from 'primeng/table';
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule,
     ReactiveFormsModule,
     TabsModule.forRoot(),
     TableModule,

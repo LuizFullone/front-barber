@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4 class="modal-title" style="color: black">{{titleHeader}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+        <div class="form-group">
+          <label for="InputName">Nome</label>
+      
+          <select class="form-control form-control-md">
+            <option>Selecione...</option>
+            <option [ngValue]="profissional.idProfissional" *ngFor="let profissional of profissionais">
+               {{ profissional.nome }} 
+            </option>
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <div>
+            <label for="InputName">Data</label>
+          </div>
+          <input class="form-control" type="date" [value]="data" [min]="data" id="data">
+        </div>
+        <div class="form-group">
+            <label for="InputName">Hora</label>
+          <select class="form-control form-control-md">
+            <option value="">Selecione...</option>
+            <option [ngValue]="hora" *ngFor="let hora of horas">      
+              {{ hora + ":00h" }} 
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          
+          <label for="InputName">Serviço</label>
+          <select class="form-control form-control-md">
+           
+            <option value="">Selecione...</option>
+            <option [ngValue]="sv.idServico" *ngFor = "let sv of servicos">
+              {{ sv.nome }}
+            </option>
+          </select>
+      
+        </div>
+        <div class="form-group">
+            <label for="InputName">Preço</label>
+            <input class="form-control" type="text" placeholder="R$ 20,00" readonly>
+        </div>
+      </form> 
