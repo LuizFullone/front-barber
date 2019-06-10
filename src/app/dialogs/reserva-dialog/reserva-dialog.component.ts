@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { NgbDateStruct, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BarberService } from '../../services/barber.service';
+//import { get } from 'https';
 
 @Component({
   selector: 'reserva-dialog',
@@ -13,7 +14,7 @@ export class ReservaComponentDialog implements OnInit {
   titleHeader:any;
   nome: string;
   
-    constructor(private service: BarberService, private ngbModal: NgbModal) {}
+    constructor(private service: BarberService, private ngbModal: NgbActiveModal) {}
 
     data: string;
     profissionais: any;
@@ -47,13 +48,30 @@ export class ReservaComponentDialog implements OnInit {
     );
   }
 
-  now (): string{
+  now(): string{
     let data = new Date();
-    let mes = data.getMonth();
     let ano = data.getFullYear();
-    let dia = data.getDate();
-    let dataAt = ano + "-" + "0"+ mes +"-"+ "0"+ dia ;
+    console.log(data);
+    let dia: any;
+    let mes: any;
+    if (data.getDay() < 9 ) {
+      dia = "0" + data.getDay(); 
+    } else {
+      dia = data.getDay();
+    }
+    console.log(data.getDay()); 
+    if (data.getMonth() < 9 ) {
+      mes = "0" + data.getMonth();
+    } else {
+      mes = data.getMonth();
+    }
+
+    let dataAt = ano + "-" + mes +"-"+ dia;
     return dataAt;  
+  }
+
+  close(){
+      this.ngbModal.close('');
   }
 
 

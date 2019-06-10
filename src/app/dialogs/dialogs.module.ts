@@ -13,6 +13,7 @@ import { SpinnerModule } from 'primeng/spinner';
 import {DataViewModule} from 'primeng/dataview';
 import {PanelModule} from 'primeng/panel';
 import {GrowlModule} from 'primeng/growl';
+import { ReservaComponentDialog } from './reserva-dialog/reserva-dialog.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {GrowlModule} from 'primeng/growl';
   declarations: [
     ProfissionalComponentDialog,
     ServicosComponentDialog,
+    ReservaComponentDialog
   ],
   
   exports: [],
@@ -39,7 +41,8 @@ import {GrowlModule} from 'primeng/growl';
 
   entryComponents: [ 
     ProfissionalComponentDialog, 
-    ServicosComponentDialog  
+    ServicosComponentDialog,
+    ReservaComponentDialog  
   ]
 })
 export class DialogsModule { }
