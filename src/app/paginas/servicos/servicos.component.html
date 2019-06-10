@@ -1,14 +1,14 @@
 <div>
   <div class="row">
     <div class="col-4">
-      <legend>Servicos</legend>
+      <legend>Serviços</legend>
     </div>
   </div>
   <br>
   <div class="row mb-2">
         <div class="col">
             <button type="button" style="margin-right: 10px" class="btn btn-primary" (click)="show(null)">Novo</button>
-          </div>
+        </div>
   </div>
       <p-table [columns]="cols" [value]="servicos" sortMode="multiple" [paginator]="true" [rows]="10">
           <ng-template pTemplate="header" let-columns>
