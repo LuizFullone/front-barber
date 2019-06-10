@@ -12,11 +12,11 @@ export class ServicosComponentDialog implements OnInit {
     constructor(private service: BarberService, private ngbModal: NgbActiveModal, private modal: BsModalService) {}
     @Input() servicosId: any;
 
-    servicos: any;
+    servico: any;
     titleHeader: string;
     nome: string;
     valor: DoubleRange;
-    
+   
     ngOnInit() {
       this.titleHeader = 'Novo Serviço';
       if(this.servicosId != null ){        
@@ -28,19 +28,20 @@ export class ServicosComponentDialog implements OnInit {
       if(this.servicosId != null){
         this.updateServicos();
       }else{
-        this.createProject();
+        this.createServicos();
       }
     }
 
-    createProject() {
-      this.service.createServicos({
-        "nome": this.nome,
-        "valor": this.valor
-      }).subscribe(
-        ()=>{
-          this.close();
-        }
-      );
+    createServicos() {
+      
+        this.service.createServicos({
+          "nome": this.nome,
+          "valor": this.valor
+        }).subscribe(
+          ()=>{
+            this.close();
+          }
+        );
     }
 
     updateServicos(){
@@ -61,12 +62,12 @@ export class ServicosComponentDialog implements OnInit {
     getServicosId(id){
       this.service.getServicosById(id).subscribe(
           data => { 
-              this.servicos = data;
+              this.servico = data;
 
-              this.titleHeader = 'Edit Serviço #' + this.servicosId;
-              this.nome = this.servicos.nome;
-              this.valor = this.servicos.valor;
-              
+              this.titleHeader = 'Edit Servico #' + this.servicosId;
+              this.nome = this.servico.nome;
+              this.valor = this.servico.valor;
+
           }
       );
   }

@@ -4,3 +4,7 @@
 hr{
     background-color: var(--cor-bg-texto);
 }
+.old-car {
+    background-color:var(--cor-bg-fundo)!important;
+    color: #ffffff !important;
+}
