@@ -1,0 +1,13 @@
+.profissional{
+    width: 86vh;
+}
+hr{
+    background-color: var(--cor-bg-texto);
+}
+.old-car {
+    background-color:var(--cor-bg-fundo)!important;
+    color: #ffffff !important;
+}
+.margin{
+    margin-top: 50%;
+}
