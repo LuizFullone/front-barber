@@ -76,4 +76,8 @@ export class BarberService {
     return this.http.put(AppComponent.API_URL + '/cliente/'+id,body, { headers: this.getOptions() } );
   }
 
+  login(usuario, senha){
+    return this.http.get(AppComponent.API_URL + '/login/'+usuario+'/'+senha, { headers: this.getOptions() } );
+  }
+
 }

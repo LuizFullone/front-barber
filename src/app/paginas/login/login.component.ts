@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   usuario: string;
   senha: string;
+  loginData: any;
 
   constructor(private service: BarberService,public router: Router,  private ngbModal: NgbModal, private auth: AuthService) { }
   
@@ -22,10 +23,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.usuario)
-    console.log(this.senha)
-    
-    this.auth.fazerLogin(this.usuario, this.senha);
+    this.service.login(this.usuario, this.senha).subscribe(
+      data => {
+         this.loginData = data;
+         if(this.loginData == null){
+           alert('Login Inválido');
+         }else{
+           this.auth.fazerLogin();
+         }
+      }
+    );
   }
 
   redirectHome() {
@@ -35,14 +42,8 @@ export class LoginComponent implements OnInit {
   show(row) {
     console.log(row);
     let modalDialog = this.ngbModal.open(ClienteComponentDialog, { size: 'lg' });
-    if(row){
-      modalDialog.componentInstance.clienteId = row.idCliente;
-    }else{
-      modalDialog.componentInstance.clienteId = null  
-    }
-    modalDialog.result.then(response => {
-      this.redirectHome();
-    })
+    modalDialog.componentInstance.clienteId = null;
+    modalDialog.componentInstance.primeiro = 1;
   }
 
 }

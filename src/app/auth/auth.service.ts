@@ -8,14 +8,21 @@ export class AuthService {
 
   public mostrarMenu = new EventEmitter<boolean>();
 
+  login;
+
   constructor(private router: Router) { }
 
-  fazerLogin(usuario, senha){
+  fazerLogin(){
     this.mostrarMenu.emit(true);
     this.redirectHome();
   }
 
   redirectHome() {
     this.router.navigate(['/home']);
+  }
+
+  mostrar(){
+    this.mostrarMenu.emit(true);
+    this.redirectHome();
   }
 }

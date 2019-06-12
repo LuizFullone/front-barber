@@ -3,14 +3,17 @@ import { Subscription } from 'rxjs';
 import { NgbDateStruct, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BarberService } from '../../services/barber.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'cliente-dialog',
   templateUrl: './cliente-dialog.component.html'
 })
 export class ClienteComponentDialog implements OnInit {
-    constructor(private service: BarberService, private ngbModal: NgbActiveModal, private modal: BsModalService) {}
+    constructor(private service: BarberService, private ngbModal: NgbActiveModal, private modal: BsModalService, private router: Router, private auth: AuthService) {}
     @Input() clienteId: any;
+    @Input() primeiro: any;
 
     cliente: any;
     titleHeader: string;
@@ -50,6 +53,9 @@ export class ClienteComponentDialog implements OnInit {
         }).subscribe(
           ()=>{
             this.close();
+            if(this.primeiro){
+              this.auth.mostrar();
+            }
           }
         );
       }else{
