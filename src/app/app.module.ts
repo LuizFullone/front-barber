@@ -10,6 +10,7 @@ import { ServicosComponent } from './paginas/servicos/servicos.component';
 import { ClienteComponent } from './paginas/cliente/cliente.component';
 import { ReservaComponent } from './paginas/reserva/reserva.component';
 import { ProfissionalComponent } from './paginas/profissional/profissional.component';
+import { LoginComponent } from './paginas/login/login.component';
 import { BarberService } from './services/barber.service';
 import { DialogsModule } from './dialogs/dialogs.module';
 
@@ -28,6 +29,7 @@ import {TableModule} from 'primeng/table';
     ClienteComponent,
     ReservaComponent,
     ProfissionalComponent,
+    LoginComponent,
     HomeComponent
   ],
   imports: [
@@ -44,7 +46,7 @@ import {TableModule} from 'primeng/table';
     TableModule,
     DialogsModule
   ],
-  providers: [BarberService],
+  providers: [BarberService, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
