@@ -1,12 +1,28 @@
-<header class="app-header navbar" style="background:snow">
-        <font color="black">Valhalla Barber Shop</font>
-</header>
 <div class="inicial">
-    <header style="background: black; width: 250px;">
-        <div>
-            <menu></menu>
+    <div>
+        <div id="sidebar">
+            <div class="toggle-btn" (click)="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/reserva">Reserva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/servicos">Serviço</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/cliente">Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/profissional">Profissional</a>
+                    </li>
+            </ul>
         </div>
-    </header>
+    </div>
     <div class="conteudo">
         <router-outlet></router-outlet>
     </div>

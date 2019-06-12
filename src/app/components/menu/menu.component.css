@@ -1,21 +1,12 @@
-.menu{
-    border-bottom: 1px solid var(--cor-bg-texto);
-    width: 130%;
-    height: 30vh;
-    text-decoration: none;
+* {
+    margin:0px;
+    padding:0px;
+    font-family: sans-serif; 
 }
-a {
-    color: var(--cor-bg-texto);
-    text-decoration: none;
-}
-a:hover 
-{
-     color:var(--cor-bg-fundo); 
-     text-decoration:none; 
-     cursor:pointer;  
-}
-li:hover 
-{
-     background-color: var(--cor-bg-texto);
-     
+
+.sidebar{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: #151719;
 }

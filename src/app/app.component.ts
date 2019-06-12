@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   static API_URL="http://localhost:8080";
+
+  toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle('active')
+  }
+  
 }

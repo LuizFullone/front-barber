@@ -8,3 +8,6 @@ hr{
     background-color:var(--cor-bg-fundo)!important;
     color: #ffffff !important;
 }
+.margin{
+    margin-top: 5%;
+}
