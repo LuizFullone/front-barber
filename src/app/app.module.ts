@@ -13,6 +13,7 @@ import { ProfissionalComponent } from './paginas/profissional/profissional.compo
 import { LoginComponent } from './paginas/login/login.component';
 import { BarberService } from './services/barber.service';
 import { DialogsModule } from './dialogs/dialogs.module';
+import { AuthService } from './auth/auth.service';
 
 import { routing } from './app.routing';
 import { HomeComponent } from './paginas/home/home.component';
@@ -46,7 +47,7 @@ import {TableModule} from 'primeng/table';
     TableModule,
     DialogsModule
   ],
-  providers: [BarberService, LoginComponent],
+  providers: [BarberService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

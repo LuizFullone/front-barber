@@ -1,6 +1,9 @@
 import { Component, OnInit, Injectable, TemplateRef, EventEmitter } from '@angular/core';
 import { BarberService } from '../../services/barber.service';
 import { Router } from '@angular/router';
+import {ClienteComponentDialog} from '../../dialogs/cliente-dialog/cliente-dialog.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,24 +12,37 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  mostrarMenu = new EventEmitter<boolean>();
+  usuario: string;
+  senha: string;
 
-  constructor(private service: BarberService,public router: Router) { }
+  constructor(private service: BarberService,public router: Router,  private ngbModal: NgbModal, private auth: AuthService) { }
   
   ngOnInit() {
     
   }
 
   login(){
-    //depois do user
-    this.mostrarMenu.emit(true);
-    this.redirectLogin();
+    console.log(this.usuario)
+    console.log(this.senha)
+    
+    this.auth.fazerLogin(this.usuario, this.senha);
   }
 
-  redirectLogin() {
-    let url: string = '/login';
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([url]);
+  redirectHome() {
+    this.router.navigate(['/home']);
+  }
+
+  show(row) {
+    console.log(row);
+    let modalDialog = this.ngbModal.open(ClienteComponentDialog, { size: 'lg' });
+    if(row){
+      modalDialog.componentInstance.clienteId = row.idCliente;
+    }else{
+      modalDialog.componentInstance.clienteId = null  
+    }
+    modalDialog.result.then(response => {
+      this.redirectHome();
+    })
   }
 
 }

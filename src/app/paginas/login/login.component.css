@@ -9,5 +9,11 @@ hr{
     color: #ffffff !important;
 }
 .margin{
-    margin-top: 50%;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.label{
+    margin-right: 100px;
+    color: black;
 }

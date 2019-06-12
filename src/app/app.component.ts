@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './paginas/login/login.component';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,12 @@ export class AppComponent {
 
   mostrarMenu: boolean = false;
 
-  constructor(private login: LoginComponent){
+  constructor(private auth: AuthService){
 
   }
 
   ngOnInit(){
-    this.login.mostrarMenu.subscribe(
+    this.auth.mostrarMenu.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
   }
