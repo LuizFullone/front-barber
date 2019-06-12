@@ -36,7 +36,7 @@ export class ServicosComponent implements OnInit {
     console.log(row);
     let modalDialog = this.ngbModal.open(ServicosComponentDialog, { size: 'lg' });
     if(row){
-      modalDialog.componentInstance.servicosId = row.idServico;
+      modalDialog.componentInstance.servicosId = row.idServicos;
     }else{
       modalDialog.componentInstance.servicosId = null  
     }

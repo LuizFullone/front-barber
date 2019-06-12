@@ -14,6 +14,7 @@ import {DataViewModule} from 'primeng/dataview';
 import {PanelModule} from 'primeng/panel';
 import {GrowlModule} from 'primeng/growl';
 import { ClienteComponentDialog } from './cliente-dialog/cliente-dialog.component';
+import { ReservaComponentDialog } from './reserva-dialog/reserva-dialog.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { ClienteComponentDialog } from './cliente-dialog/cliente-dialog.componen
   declarations: [
     ProfissionalComponentDialog,
     ServicosComponentDialog,
-    ClienteComponentDialog
+    ClienteComponentDialog,
+    ReservaComponentDialog
   ],
   
   exports: [],
@@ -42,7 +44,8 @@ import { ClienteComponentDialog } from './cliente-dialog/cliente-dialog.componen
   entryComponents: [ 
     ProfissionalComponentDialog, 
     ServicosComponentDialog, 
-    ClienteComponentDialog
+    ClienteComponentDialog,
+    ReservaComponentDialog
   ]
 })
 export class DialogsModule { }

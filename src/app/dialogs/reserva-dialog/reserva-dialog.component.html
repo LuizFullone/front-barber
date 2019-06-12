@@ -1,0 +1,69 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="color: black">{{titleHeader}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<form class="reserva">
+  <div class="modal-body">
+
+    <div class="form-group row">
+      <label for="InputName" class="col-md-3 col-form-label">Nome</label>
+      <div class="col-md-8">
+        <select class="form-control form-control-md" id="idprofReserva"
+         name="idprofReserva"
+         [(ngModel)]="idprofReserva">
+          <option>Selecione...</option>
+          <option [ngValue]="profissional.idProfissional" *ngFor="let profissional of profissionais">
+            {{ profissional.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="InputName" class="col-md-3 col-form-label">Data</label>
+      <div class="col-md-8">
+        <input class="form-control" type="date" [value]="data" [min]="data" id="data">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="InputName" class="col-md-3 col-form-label">Hora</label>
+      <div class="col-md-8">
+        <select class="form-control form-control-md">
+          <option value="">Selecione...</option>
+          <option [ngValue]="hora" *ngFor="let hora of horas">
+            {{ hora + ":00h" }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="InputName" class="col-md-3 col-form-label">Serviço</label>
+      <div class="col-md-8">
+        <select  class="form-control form-control-md">
+          <option value="">Selecione...</option>
+          <option [value]="sv.idServico" *ngFor="let sv of servicos">
+            {{ sv.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="InputName" class="col-md-3 col-form-label">Preço</label>
+      <div class="col-md-8">
+        <input class="form-control" type="text" [placeholder]="servicoSelected" readonly>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+      <button type="button" class="btn btn-outline-dark" (click)="close()">Cancelar</button>
+      <button type="button" class="btn btn-outline-dark" (click)="teste()">Teste</button>
+    </div>
+  </div>
+</form>
