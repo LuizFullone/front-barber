@@ -22,6 +22,7 @@ export class ReservaComponentDialog implements OnInit {
     profissionais: any;
     horas : any;
     servicos : any;
+    valor: any;
 
     idprofReserva : any;
     horaReserva : any;
@@ -36,21 +37,21 @@ export class ReservaComponentDialog implements OnInit {
       this.horas = [9,10,11,12,13,14,15,16,17,18,19,20];
       this.data = this.now();
       this.getServicos();
+      this.valor =  "Selecione um servico";
 
   }
 
   teste(){
     console.log(this.idprofReserva);
     let data = new Date();
+    console.log(data.toDateString);
   }
 
-  getValor(){
+  setValor(){
     if(!this.servicoSelected){
-      console.log(this.servicoSelected);
-      return "Selecione um servico";
+      this.valor =  "Selecione um servico";
     }
-    console.log("R$" + this.servicos[this.servicoSelected]);
-    return "R$" + this.servicos[this.servicoSelected];
+    this.valor = "R$" + this.servicos[this.servicoSelected - 1].valor;
   }
 
   getProfissional(){
@@ -69,20 +70,6 @@ export class ReservaComponentDialog implements OnInit {
     );
   }
 
-  updateReserva(){
-    this.service.updateProfissional(this.reservaId,{
-      "profissional":{ "idProfissional" : this.idprofReserva},
-      "cliente": { "idCliiente": 1 },
-      "data": this.dataReserva,
-      "servicos" : {"idServico" : this.servicoSelected},
-      "hora": this.horaReserva
-    }).subscribe(
-      ()=>{
-        this.close();
-      }
-    );
-  }
-
   save(){
     if (this.reservaId != null){
         this.updateReserva();
@@ -91,13 +78,35 @@ export class ReservaComponentDialog implements OnInit {
     }
   }
 
+  
+  close(){
+    this.ngbModal.close('');
+  }
+
+  updateReserva(){
+    this.service.updateProfissional(this.reservaId,{
+      "profissional":{ "idProfissional" : this.idprofReserva},
+      "cliente": { "idCliiente": 1 },
+      "data": this.dataReserva,
+      "servicos" : {"idServico" : this.servicoSelected},
+      "hora": this.horaReserva,
+      "valor": ""
+    }).subscribe(
+      ()=>{
+        alert("Reserva realizada com sucesso");
+        this.close();
+      }
+    );
+  }
+
   createReserva(){
     this.service.createReserva({
       "profissional":{ "idProfissional" : this.idprofReserva},
       "cliente": { "idCliiente": 1 },
       "data": this.dataReserva,
       "servicos" : {"idServico" : this.servicoSelected},
-      "hora": this.horaReserva
+      "hora": this.horaReserva,
+      "valor": ""
     }).subscribe(
       ()=>{
         this.close();
@@ -124,13 +133,4 @@ export class ReservaComponentDialog implements OnInit {
     let dataAt = ano + "-" + mes +"-"+ dia;
     return dataAt;  
   }
-
-  close(){
-      this.ngbModal.close('');
-  }
-
-  buscaValor(){
-    
-  }
-
 }

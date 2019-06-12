@@ -32,6 +32,10 @@ export class BarberService {
     return this.http.put(AppComponent.API_URL + '/profissional/'+id,body, { headers: this.getOptions() } );
   }
 
+  getReservas(){
+    return this.http.get(AppComponent.API_URL + '/reserva', { headers: this.getOptions() } );
+  }
+
   createReserva(body) {
     return this.http.post(AppComponent.API_URL + '/reserva', body, { headers: this.getOptions() } );
   }

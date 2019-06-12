@@ -24,10 +24,11 @@ export class ReservaComponent implements OnInit {
   ngOnInit() {
     this.cols = [
       { field: 'idReserva', header: 'Id'},
-      { field: 'nome', header: 'Funcionário' },
+      { field: 'profissional', header: 'Funcionário' },
+      { field: 'cliente', header: 'Cliente'},
       { field: 'data', header: 'Dia' },
       { field: 'hora', header: 'Horário'},
-      { field: 'valor', header: 'Valor total' }
+      { field: 'valorTotal', header: 'Valor total' }
     ];
     this.getReserva();
   }
@@ -45,7 +46,14 @@ export class ReservaComponent implements OnInit {
     })
   }
 
-  getReserva(){
+  getReserva() {
+    console.log('profissional');
+    this.service.getReservas().subscribe(
+      data => {
+         this.profissionais = data;
+         console.log(data);
+      }
+    );
   }
 
 }

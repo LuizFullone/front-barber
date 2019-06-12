@@ -32,7 +32,10 @@
     <div class="form-group row">
       <label for="InputName" class="col-md-3 col-form-label">Hora</label>
       <div class="col-md-8">
-        <select class="form-control form-control-md">
+        <select class="form-control form-control-md"
+        [(ngModel)] = "horaReserva" 
+        id="horaReserva"
+        name="horaReserva">
           <option value="">Selecione...</option>
           <option [ngValue]="hora" *ngFor="let hora of horas">
             {{ hora + ":00h" }}
@@ -44,7 +47,11 @@
     <div class="form-group row">
       <label for="InputName" class="col-md-3 col-form-label">Serviço</label>
       <div class="col-md-8">
-        <select  class="form-control form-control-md">
+        <select  class="form-control form-control-md"
+          [(ngModel)] ="servicoSelected"
+          (ngModelChange) = "setValor()"
+         name="idServico"
+          id="idServico">
           <option value="">Selecione...</option>
           <option [value]="sv.idServico" *ngFor="let sv of servicos">
             {{ sv.nome }}
@@ -56,7 +63,7 @@
     <div class="form-group row">
       <label for="InputName" class="col-md-3 col-form-label">Preço</label>
       <div class="col-md-8">
-        <input class="form-control" type="text" [placeholder]="servicoSelected" readonly>
+        <input class="form-control" type="text" id="valor" name="valor" [placeholder]="valor" readonly>
       </div>
     </div>
 
