@@ -7,7 +7,7 @@ import { ReservaComponentDialog } from 'src/app/dialogs/reserva-dialog/reserva-d
 @Component({
   selector: 'app-reserva',
   templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.css']
+  styleUrls: ['../profissional/profissional.component.css']
 })
 
 export class ReservaComponent implements OnInit {
@@ -18,6 +18,7 @@ export class ReservaComponent implements OnInit {
   horas : any;
   servicos : any;
   reservas : any;
+  idProf: any;
 
   constructor(private service:BarberService, private ngbModal: NgbModal ) { }
 
@@ -37,21 +38,28 @@ export class ReservaComponent implements OnInit {
     console.log(row);
     let modalDialog = this.ngbModal.open(ReservaComponentDialog, { size: 'lg' });
     if(row){
-      modalDialog.componentInstance.reservaId = row.idProfissional;
+      modalDialog.componentInstance.reservaId = row.idReserva;
     }else{
       modalDialog.componentInstance.reservaId = null  
     }
     modalDialog.result.then(response => {
       this.getReserva();
-    })
+    });
   }
 
   getReserva() {
-    console.log('profissional');
     this.service.getReservas().subscribe(
       data => {
-         this.profissionais = data;
-         console.log(data);
+         this.reservas = data;
+         console.log(data[0]);
+         let cont = 0;
+         for(let reserva of this.reservas){
+           this.reservas[cont].profissional=reserva.profissional.nome;
+           this.reservas[cont].cliente = reserva.cliente.nome;
+           cont++;
+         }
+         console.log(data[0]);
+         
       }
     );
   }

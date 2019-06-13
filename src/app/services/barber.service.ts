@@ -35,6 +35,10 @@ export class BarberService {
   getReservas(){
     return this.http.get(AppComponent.API_URL + '/reserva', { headers: this.getOptions() } );
   }
+  
+  getReservaById(id){
+    return this.http.get(AppComponent.API_URL + '/reserva/'+id, { headers: this.getOptions() } );
+  }
 
   createReserva(body) {
     return this.http.post(AppComponent.API_URL + '/reserva', body, { headers: this.getOptions() } );
@@ -42,6 +46,11 @@ export class BarberService {
 
   updateReserva(id,body){
     return this.http.put(AppComponent.API_URL + '/reserva/'+id,body, { headers: this.getOptions() } );
+  }
+
+  deleteReserva(id){
+    console.log(AppComponent.API_URL + '/reserva/delete/'+id);
+    return this.http.put(AppComponent.API_URL + '/reserva/delete/'+id, { headers: this.getOptions() });
   }
 
   getServicos() {
