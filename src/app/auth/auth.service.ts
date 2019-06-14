@@ -8,11 +8,12 @@ export class AuthService {
 
   public mostrarMenu = new EventEmitter<boolean>();
 
-  login;
+  usuarioAutenticado: boolean = false;
 
   constructor(private router: Router) { }
 
   fazerLogin(){
+    this.usuarioAutenticado = true;
     this.mostrarMenu.emit(true);
     this.redirectHome();
   }
@@ -25,4 +26,9 @@ export class AuthService {
     this.mostrarMenu.emit(true);
     this.redirectHome();
   }
+
+  usuarioEstaAutenticado(){
+    return this.usuarioAutenticado;
+  }
+
 }

@@ -21,6 +21,7 @@ import { GrowlModule } from 'primeng/growl';
 import { HttpClientModule } from '@angular/common/http';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {TableModule} from 'primeng/table';
+import { AuthGuarda } from './guarda/auth-guarda';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import {TableModule} from 'primeng/table';
     TableModule,
     DialogsModule
   ],
-  providers: [BarberService, AuthService],
+  providers: [BarberService, AuthService, AuthGuarda],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
