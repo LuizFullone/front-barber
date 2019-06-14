@@ -6,6 +6,7 @@
                 <span></span>
                 <span></span>
             </div>
+            
             <ul>
                     <li class="active"><a routerLink="/home">Home</a></li>
                     <li class="nav-item">
@@ -25,5 +26,10 @@
     </div>
 </div>
 <div class="conteudo">
+        <div *ngIf="mostrarMenu">
+        <div style="margin-left: 99%; margin-top: 2%;">
+            <avatar [name]="usuario" [displayType]="'circle'" [background]="'#9e9e9e'" size=30></avatar>
+        </div>
+        </div>
     <router-outlet></router-outlet>
 </div>

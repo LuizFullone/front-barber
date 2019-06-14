@@ -26,11 +26,15 @@ export class LoginComponent implements OnInit {
     this.service.login(this.usuario, this.senha).subscribe(
       data => {
          this.loginData = data;
+
          if(this.loginData == null){
            alert('Login Inválido');
          }else{
+           sessionStorage.setItem('usuario', this.loginData.usuario); 
+           sessionStorage.setItem('tipo', this.loginData.tipo);
            this.auth.fazerLogin();
          }
+
       }
     );
   }

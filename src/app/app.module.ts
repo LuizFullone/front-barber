@@ -16,10 +16,12 @@ import { DialogsModule } from './dialogs/dialogs.module';
 import { AuthService } from './auth/auth.service';
 
 import { routing } from './app.routing';
+import { AvatarModule } from 'ng2-avatar';
 import { HomeComponent } from './paginas/home/home.component';
 import { GrowlModule } from 'primeng/growl';
 import { HttpClientModule } from '@angular/common/http';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDropdownModule, BsDropdownDirective } from 'ngx-bootstrap/dropdown';
 import {TableModule} from 'primeng/table';
 import { AuthGuarda } from './guarda/auth-guarda';
 
@@ -45,6 +47,8 @@ import { AuthGuarda } from './guarda/auth-guarda';
     ReactiveFormsModule,
     ReactiveFormsModule,
     TabsModule.forRoot(),
+    AvatarModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TableModule,
     DialogsModule
   ],

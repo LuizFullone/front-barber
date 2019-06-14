@@ -12,13 +12,18 @@ export class AppComponent {
 
   mostrarMenu: boolean = false;
 
+  usuario: any;
+
   constructor(private auth: AuthService){
 
   }
 
   ngOnInit(){
     this.auth.mostrarMenu.subscribe(
-      mostrar => this.mostrarMenu = mostrar
+      mostrar => {
+        this.mostrarMenu = mostrar;
+        this.usuario = sessionStorage.getItem('usuario');
+      }
     );
   }
 
