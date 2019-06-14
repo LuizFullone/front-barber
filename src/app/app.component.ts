@@ -8,7 +8,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   title = 'app works!';
-  static API_URL="http://localhost:8080";
+  static API_URL="https://aw-barber-api.herokuapp.com";
 
   mostrarMenu: boolean = false;
 
