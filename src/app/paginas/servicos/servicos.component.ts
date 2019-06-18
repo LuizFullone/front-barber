@@ -6,7 +6,7 @@ import {ServicosComponentDialog} from '../../dialogs/servicos-dialog/servicos-di
 @Component({
   selector: 'app-servicos',
   templateUrl: './servicos.component.html',
-  styleUrls: ['./servicos.component.css']
+  styleUrls: ['../profissional/profissional.component.css']
 })
 export class ServicosComponent implements OnInit {
 

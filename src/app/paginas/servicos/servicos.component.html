@@ -21,7 +21,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr [pSelectableRow]="rowData" (click)="show(rowData)">
-                <td class="truncate" *ngFor="let col of columns">
+                <td *ngFor="let col of columns" [ngClass]="'old-car'">
                     {{rowData[col.field]}}
                 </td>
             </tr>
