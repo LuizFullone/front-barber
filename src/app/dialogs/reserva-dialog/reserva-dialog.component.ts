@@ -122,7 +122,7 @@ export class ReservaComponentDialog implements OnInit {
     console.log(this.servicoSelected)
     this.service.createReserva({
       "profissional": { "idProfissional": this.idprofReserva },
-      "cliente": { "idCliente": 1 },
+      "cliente": { "idCliente": 4 },
       "data": this.dataReserva,
       "servicos": [{ "idServico": this.servicoSelected }],
       "hora": this.horaReserva,

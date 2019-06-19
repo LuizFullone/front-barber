@@ -54,7 +54,18 @@ export class ReservaComponent implements OnInit {
       modalDialog.componentInstance.reservaId = null  
     }
     modalDialog.result.then(response => {
+
+    let tipo = sessionStorage.getItem('tipo');
+    
+    if (tipo == 'administrador'){
       this.getReserva();
+    }
+    else if (tipo == 'profissional'){
+      this.getByNomeProfissional();
+    }
+    else if (tipo == 'cliente'){
+      this.getByNomeCliente();
+    }
     });
   }
 
