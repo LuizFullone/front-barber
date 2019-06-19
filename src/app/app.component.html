@@ -12,15 +12,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" routerLink="/reserva">Reserva</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/servicos">Serviço</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/cliente">Cliente</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/profissional">Profissional</a>
-                    </li>
+                    <div *ngIf="administrador">
+                        <li class="nav-item"> 
+                            <a class="nav-link" routerLink="/servicos">Serviço</a>
+                        </li>
+                    </div>
+                    <div *ngIf="administrador">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/cliente">Cliente</a>
+                        </li>
+                    </div>
+                    <div *ngIf="administrador">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/profissional">Profissional</a>
+                        </li>
+                    </div>
             </ul>
         </div>
     </div>

@@ -14,6 +14,8 @@ export class AppComponent {
 
   usuario: any;
 
+  administrador: boolean = false;
+
   constructor(private auth: AuthService){
 
   }
@@ -23,6 +25,12 @@ export class AppComponent {
       mostrar => {
         this.mostrarMenu = mostrar;
         this.usuario = sessionStorage.getItem('usuario');
+
+        let tipo = sessionStorage.getItem('tipo');
+        if (tipo == 'administrador'){
+          this.administrador = true;
+        }
+
       }
     );
   }
