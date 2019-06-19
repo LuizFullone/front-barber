@@ -53,6 +53,10 @@ export class BarberService {
     return this.http.put(AppComponent.API_URL + '/reserva/delete/'+id, { headers: this.getOptions() });
   }
 
+  getByNomeProfissional(nome){
+    return this.http.get(AppComponent.API_URL + '/reserva/nome'+nome, { headers: this.getOptions() } );
+  }
+
   getServicos() {
     return this.http.get(AppComponent.API_URL + '/servico', { headers: this.getOptions() } );
   }

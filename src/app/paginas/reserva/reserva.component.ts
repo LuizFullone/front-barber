@@ -19,6 +19,7 @@ export class ReservaComponent implements OnInit {
   servicos : any;
   reservas : any;
   idProf: any;
+  usuario: any;
 
   constructor(private service:BarberService, private ngbModal: NgbModal ) { }
 
@@ -32,6 +33,7 @@ export class ReservaComponent implements OnInit {
       { field: 'valorTotal', header: 'Valor total' }
     ];
     this.getReserva();
+    this.getByNomeProfissional();
   }
 
   show(row) {
@@ -64,4 +66,9 @@ export class ReservaComponent implements OnInit {
     );
   }
 
+  getByNomeProfissional(){
+    this.usuario = sessionStorage.getItem('usuario');
+    console.log(this.usuario);
+  }
+  
 }
