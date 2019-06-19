@@ -32,8 +32,17 @@ export class ReservaComponent implements OnInit {
       { field: 'hora', header: 'Horário'},
       { field: 'valorTotal', header: 'Valor total' }
     ];
-    this.getReserva();
-    this.getByNomeProfissional();
+    let tipo = sessionStorage.getItem('tipo');
+    if (tipo == 'administrador'){
+      this.getReserva();
+    }
+    else if (tipo == 'profissional'){
+      this.getByNomeProfissional();
+    }
+    else if (tipo == 'cliente'){
+      this.getByNomeCliente();
+    }
+   
   }
 
   show(row) {
@@ -68,7 +77,38 @@ export class ReservaComponent implements OnInit {
 
   getByNomeProfissional(){
     this.usuario = sessionStorage.getItem('usuario');
-    console.log(this.usuario);
+
+    this.service.getByNomeProfissional(this.usuario).subscribe(
+      data => {
+         this.reservas = data;
+         let cont = 0;
+         for(let reserva of this.reservas){
+           this.reservas[cont].profissional= reserva.profissional.nome;
+           this.reservas[cont].cliente = reserva.cliente.nome;
+           cont++;
+         }
+       
+         
+      }
+    );
   }
   
+  getByNomeCliente(){
+    this.usuario = sessionStorage.getItem('usuario');
+
+    this.service.getByNomeCliente(this.usuario).subscribe(
+      data => {
+         this.reservas = data;
+         let cont = 0;
+         for(let reserva of this.reservas){
+           this.reservas[cont].profissional= reserva.profissional.nome;
+           this.reservas[cont].cliente = reserva.cliente.nome;
+           cont++;
+         }
+       
+         
+      }
+    );
+    
+  }
 }
