@@ -105,7 +105,7 @@ export class ReservaComponentDialog implements OnInit {
   updateReserva() {
     this.service.updateProfissional(this.reservaId, {
       "profissional": { "idProfissional": this.idprofReserva },
-      "cliente": { "idCliiente": 1 },
+      "cliente": { "idCliente": 1 },
       "data": this.dataReserva,
       "servicos": { "idServico": this.servicoSelected },
       "hora": this.horaReserva,
@@ -122,7 +122,7 @@ export class ReservaComponentDialog implements OnInit {
     console.log(this.servicoSelected)
     this.service.createReserva({
       "profissional": { "idProfissional": this.idprofReserva },
-      "cliente": { "idCliente": 4 },
+      "cliente": { "usuario": sessionStorage.getItem("usuario") },
       "data": this.dataReserva,
       "servicos": [{ "idServico": this.servicoSelected }],
       "hora": this.horaReserva,
